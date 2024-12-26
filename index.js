@@ -18,8 +18,11 @@ document.getElementById('nin').addEventListener('input', function () {
 });
 
 // GPS Coordinates Capture Simulation
-function captureGPS() {
-    const gpsDisplay = document.getElementById('gps-coordinates');
-    // Simulating GPS coordinates
-    gpsDisplay.textContent = "Coordinates: 13.0059, 5.2476"; // Example: Sokoto coordinates
-}
+// GPS Coordinates Capture Simulation
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+
